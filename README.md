@@ -13,7 +13,7 @@ The following report links work only once the api is compiled in local
 | python        | https://www.python.org/                           | No                                                               |
 | pytest        | https://docs.pytest.org/en/8.0.x/                 | [Report](http://localhost:5000/)                                 |
 | flask         | https://flask.palletsprojects.com/en/3.0.x/       | No                                                               |
-| flask-RESTPlus| https://flask-restplus.readthedocs.io/en/stable/  | No                                                               |
+| flask-restx   | https://flask-restx.readthedocs.io/en/latest/     | No                                                               |
 | Swagger       | https://swagger.io/                               | [Report](http://localhost:5000/swagger/)                         | 
 | pipenv        | https://pipenv.pypa.io/en/latest/                 | No                                                               | 
 
