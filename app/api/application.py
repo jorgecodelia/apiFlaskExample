@@ -4,8 +4,8 @@ import os
 from flask import Flask, Blueprint
 from flask_restx import Api
 from werkzeug.exceptions import HTTPException
-from app.api.common.util.error_handler import ErrorHandler
-from app.api.common.exception.service_exception import ServiceException
+from app.api.util.error_handler import ErrorHandler
+from app.api.exception.service_exception import ServiceException
 
 # Import controllers
 from app.api.controller.user_controller import UserController
@@ -19,7 +19,7 @@ def create_app(env=None):
     if env:
         env = os.environ.get('FLASK_ENV', 'local')
 
-    config_file = f'./resources/{env}.yml'
+    config_file = f'../resources/{env}.yml'
 
     # Register blueprints
     user_bp = Blueprint('user', __name__, url_prefix='/users')
@@ -32,14 +32,12 @@ def create_app(env=None):
     if os.path.isfile(config_file):
         app.config.from_pyfile(config_file)
     else:
-        app.config.from_pyfile('./resources/local.yml')
+        app.config.from_pyfile('../resources/local.yml')
 
-    # Define error handler for ServiceException
+    # Define error handlers
     @api.errorhandler(ServiceException)
     def handle_custom_exception(error):
         return error_handler.handle_custom_exception(error)
-
-    # Define error handler for HTTPException
     @api.errorhandler(HTTPException)
     def handle_http_exception(error):
         return error_handler.handle_http_exception(error)
@@ -48,8 +46,3 @@ def create_app(env=None):
     api.add_resource(UserController, '/v1/users')
 
     return app
-
-
-if __name__ == '__main__':
-    app = create_app()
-    app.run(debug=True)

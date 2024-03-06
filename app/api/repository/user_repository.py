@@ -1,6 +1,6 @@
 # app/api/repository/user_repository.py
 
-from app.api.common.model.user import User
+from app.api.model.user import User
 
 class UserRepository:
     def __init__(self):

@@ -1,3 +1,7 @@
-from app import app
+# run.py
 
-app.create_app()
+from app.api.application import create_app
+
+if __name__ == '__main__':
+    app = create_app()
+    app.run(debug=True)

@@ -3,10 +3,10 @@
 from flask import request
 from flask_restx import Resource, Namespace
 from app.api.service.user_service import UserService
-from app.api.common.util.error_handler import ErrorHandler
-from app.api.common.exception.not_found_exception import NotFoundException
-from app.api.common.exception.service_exception import ServiceException
-from app.api.common.exception.validation_exception import ValidationException
+from app.api.util.error_handler import ErrorHandler
+from app.api.exception.not_found_exception import NotFoundException
+from app.api.exception.service_exception import ServiceException
+from app.api.exception.validation_exception import ValidationException
 
 api = Namespace('users', description='User operations')
 user_service = UserService()

@@ -1,4 +1,4 @@
-# app/api/common/util/error_handler.py
+# app/api/util/error_handler.py
 
 from flask_restx import Api
 from werkzeug.exceptions import HTTPException

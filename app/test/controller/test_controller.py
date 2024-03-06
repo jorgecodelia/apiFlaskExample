@@ -3,7 +3,9 @@
 from unittest.mock import patch
 from app.api.controller.user_controller import UserController
 from app.api.service.user_service import UserService
-from app.api.common.exception import NotFoundException, ValidationError, ServiceException
+from app.api.exception.not_found_exception import NotFoundException
+from app.api.exception.service_exception import ServiceException
+from app.api.exception.validation_exception import ValidationException
 import json
 
 def test_create_user_ok():
@@ -12,11 +14,16 @@ def test_create_user_ok():
         assert response == ({'id': 1, 'name': 'John Doe', 'email': 'john@example.com'}, 201)
 
 def test_create_user_validation_error():
-    with patch.object(UserService, 'create_user', side_effect=ValidationError("Validation error")):
+    with patch.object(UserService, 'create_user', side_effect=ValidationException("Validation error")):
         response = UserController().post()
         assert response == ({"message": "Validation error"}, 400)
-
-def test_create_user_service_exception():
-    with patch.object(UserService, 'create_user', side_effect=Exception("Service exception")):
+        
+def test_create_user_service_error():
+    with patch.object(UserService, 'create_user', side_effect=ServiceException("Service error")):
         response = UserController().post()
-        assert response == ({"message": "Service exception"}, 500)
+        assert response == ({"message": "Service error"}, 500)
+
+def test_create_user_generic_exception():
+    with patch.object(UserService, 'create_user', side_effect=Exception("Service Unavailable")):
+        response = UserController().post()
+        assert response == ({"message": "Service Unavailable"}, 503)

@@ -1,6 +1,6 @@
-# app/api/common/exception/validation_exception.py
+# app/api/exception/service_exception.py
 
-class ValidationException(Exception):
+class ServiceException(Exception):
     def __init__(self, message, status_code):
         super().__init__(message)
         self.status_code = status_code
