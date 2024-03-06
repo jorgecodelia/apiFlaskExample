@@ -1,0 +1,6 @@
+# Jenkins Configuration Example
+
+jenkins:
+  server_url: http://jenkins.example.com
+  username: jenkins_user
+  password: jenkins_password

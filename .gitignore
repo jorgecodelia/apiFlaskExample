@@ -1,0 +1,19 @@
+HELP.md
+__pycache__/
+*.pyc
+
+### VS Code ###
+.vscode/
+
+### db files ###
+*.db
+.db
+
+### test report files ###
+build/
+
+### Other files ###
+*.log
+*.lock
+*.bin
+*.probe

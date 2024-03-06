@@ -1,0 +1,16 @@
+# Docker Compose Configuration Example
+
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_APP: ../../app/app.py
+      FLASK_ENV: local
+    volumes:
+      - .:/app
