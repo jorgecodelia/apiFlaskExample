@@ -1,5 +1,3 @@
-# app/api/exception/not_found_exception.py
-
 class NotFoundException(Exception):
     def __init__(self, message, status_code):
         super().__init__(message)

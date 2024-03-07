@@ -1,12 +1,10 @@
 # app/test/controller/test_controller.py
 
 from unittest.mock import patch
-from app.api.controller.user_controller import UserController
-from app.api.service.user_service import UserService
-from app.api.exception.not_found_exception import NotFoundException
-from app.api.exception.service_exception import ServiceException
-from app.api.exception.validation_exception import ValidationException
-import json
+from ...api.controller.user_controller import UserController
+from ...api.service.user_service import UserService
+from ...api.exception.service_exception import ServiceException
+from ...api.exception.validation_exception import ValidationException
 
 def test_create_user_ok():
     with patch.object(UserService, 'create_user', return_value={'id': 1, 'name': 'John Doe', 'email': 'john@example.com'}):

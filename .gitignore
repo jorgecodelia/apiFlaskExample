@@ -11,6 +11,9 @@ __pycache__/
 
 ### test report files ###
 build/
+env/
+instance/
+.pytest_cache/
 
 ### Other files ###
 *.log

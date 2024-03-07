@@ -1,3 +1,3 @@
-DATABASE_URL: "dev_database_url"
+SQLALCHEMY_DATABASE_URI: "sqlite:///db.sqlite3"
 DEV_API_KEY: "dev_api_key"
 # Other development-specific settings

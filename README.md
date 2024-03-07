@@ -8,14 +8,18 @@ This documentation outlines the endpoints available in the example REST API buil
 
 The following report links work only once the api is compiled in local
 
-| Resource      | Documentation                                     | Info                                                             |
-|:--------------|:--------------------------------------------------|:-----------------------------------------------------------------|
-| python        | https://www.python.org/                           | No                                                               |
-| pytest        | https://docs.pytest.org/en/8.0.x/                 | [Report](http://localhost:5000/)                                 |
-| flask         | https://flask.palletsprojects.com/en/3.0.x/       | No                                                               |
-| flask-restx   | https://flask-restx.readthedocs.io/en/latest/     | No                                                               |
-| Swagger       | https://swagger.io/                               | [Report](http://localhost:5000/swagger/)                         | 
-| pipenv        | https://pipenv.pypa.io/en/latest/                 | No                                                               | 
+| Resource          | Documentation                                             | Info                                                             |
+|:------------------|:----------------------------------------------------------|:-----------------------------------------------------------------|
+| python            | https://www.python.org/                                   | No                                                               |
+| pytest            | https://docs.pytest.org/en/8.0.x/                         | [Report](http://localhost:5000/)                                 |
+| pytest-html       | https://docs.pytest.org/en/8.0.x/                         | No                                 |
+| flask             | https://flask.palletsprojects.com/en/3.0.x/               | No                                                               |
+| flask-restx       | https://flask-restx.readthedocs.io/en/latest/             | No                                                               |
+| flask-SQLAlchemy  | https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/    | No                                                               |
+| Swagger           | https://swagger.io/                                       | [Report](http://localhost:5000/)                         | 
+| pyyaml            | https://pypi.org/project/PyYAML/                          | No                                                               | 
+| python-dotenv     | https://pypi.org/project/python-dotenv/                   | No                                                               | 
+
 
 
 ## Project Structure
@@ -97,6 +101,15 @@ curl -X DELETE \
 The openApi URL documentation in local environment is `http://localhost:5000/swagger`.
 
 ## Install
+* 1:
+```sh
+python -m venv env
+```
+* 2:
+```sh
+source env/bin/activate
+```
+* 3:
 ```sh
 pip install -r requirements.txt
 ```

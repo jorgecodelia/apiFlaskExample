@@ -1,7 +1,7 @@
 # app/test/test_service.py
 
 import unittest
-from app.api.service.user_service import UserService
+from ...api.service.user_service import UserService
 
 class TestUserService(unittest.TestCase):
     def setUp(self):

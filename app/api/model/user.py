@@ -1,5 +1,3 @@
-# app/api/model/user.py
-
 class User:
     def __init__(self, id, name, email):
         self.id = id

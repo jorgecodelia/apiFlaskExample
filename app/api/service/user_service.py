@@ -1,5 +1,4 @@
-# app/api/service/user_service.py
-from app.api.repository.user_repository import UserRepository
+from ..repository.user_repository import UserRepository
 
 class UserService:
     def __init__(self):

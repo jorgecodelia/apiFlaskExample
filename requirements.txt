@@ -1,4 +1,7 @@
-flask ==2.0.1
+pytest==8.*
+pytest-html==4.1.*
+flask ==2.2.5
 flask_restx == 1.*
 requests ==2.26.0
 werkzeug ==2.*
+flask_sqlalchemy == 3.*

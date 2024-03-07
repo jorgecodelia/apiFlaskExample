@@ -1,48 +1,20 @@
-# app/app.py
-
-import os
-from flask import Flask, Blueprint
+from flask_sqlalchemy import SQLAlchemy
 from flask_restx import Api
-from werkzeug.exceptions import HTTPException
-from app.api.util.error_handler import ErrorHandler
-from app.api.exception.service_exception import ServiceException
+from .controller.user_controller import UserController
+from .util.config_loader import ConfigLoader
+from .util.extensions import api, db
 
-# Import controllers
-from app.api.controller.user_controller import UserController
+class Application:
+    def create_app(app):
+        
+        environment_configurations = ConfigLoader.load_config()
+        app.config.update(environment_configurations)
+        
+        # Initialize dependencies
+        api.init_app(app)
+        db.init_app(app)
 
-def create_app(env=None):
-    app = Flask(__name__)
-    api = Api(app)
-    error_handler = ErrorHandler(api)
+        # Define routes
+        api.add_resource(UserController, '/v1/users')
 
-    # Load configuration
-    if env:
-        env = os.environ.get('FLASK_ENV', 'local')
-
-    config_file = f'../resources/{env}.yml'
-
-    # Register blueprints
-    user_bp = Blueprint('user', __name__, url_prefix='/users')
-    app.register_blueprint(user_bp)
-
-    # Initialize Flask-Restx API
-    api.init_app(app)
-
-    # Check if the config file exists, if not, use the local config
-    if os.path.isfile(config_file):
-        app.config.from_pyfile(config_file)
-    else:
-        app.config.from_pyfile('../resources/local.yml')
-
-    # Define error handlers
-    @api.errorhandler(ServiceException)
-    def handle_custom_exception(error):
-        return error_handler.handle_custom_exception(error)
-    @api.errorhandler(HTTPException)
-    def handle_http_exception(error):
-        return error_handler.handle_http_exception(error)
-
-    # Define routes
-    api.add_resource(UserController, '/v1/users')
-
-    return app
+        return app

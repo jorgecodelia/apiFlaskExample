@@ -1,3 +1,3 @@
-DATABASE_URL: "local_database_url"
+SQLALCHEMY_DATABASE_URI: "sqlite:///db.sqlite3"
 LOCAL_API_KEY: "local_api_key"
 # Other local-specific settings
