@@ -10,7 +10,7 @@ class ConfigLoader:
         # Load configuration
         env = os.environ.get('FLASK_ENV', 'local')
         # Load configuration from YAML file
-        yml_file = f'./app/resources/{env}.yml'
+        yml_file = f'./app/resources/{env}.yaml'
         LOGGER.info("Loading environment configurations from : "+yml_file)
         if os.path.isfile(yml_file):
             with open(yml_file, 'r') as f:

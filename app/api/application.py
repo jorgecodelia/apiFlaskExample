@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_restx import Api
-from .controller.user_controller import UserController
+from .router import Router
 from .util.config_loader import ConfigLoader
 from .util.extensions import api, db
 
@@ -15,6 +15,6 @@ class Application:
         db.init_app(app)
 
         # Define routes
-        api.add_resource(UserController, '/v1/users')
+        Router.route(app)
 
         return app
