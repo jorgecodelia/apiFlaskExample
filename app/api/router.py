@@ -3,7 +3,7 @@ from .controller.user_controller import UserRouter, UserListRouter, UserEditRout
 
 class Router():
 
-    def route(app):
+    def route():
         
         # Define routes
         api.add_resource(UserEditRouter, '/v1/user')

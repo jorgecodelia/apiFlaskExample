@@ -7,8 +7,10 @@ class Constants(Enum):
     ERROR_MESSAGE = "Error: {}"
     CRITICAL_MESSAGE = "Critical: {}"
 
-    ## http error status
+    ## http common error status
     CREATED = "CREATED"
     BAD_REQUEST = "BAD REQUEST"
     SERVICE_ERROR = "INTERNAL SERVER ERROR"
+    FORBIDDEN = "FORBIDDEN"
+    UNAUTHORIZED = "UNAUTHORIZED"
     SUCCESS = "SUCCESS"

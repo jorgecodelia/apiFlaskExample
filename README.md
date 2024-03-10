@@ -101,15 +101,15 @@ curl -X DELETE \
 The openApi URL documentation in local environment is `http://localhost:5000/swagger`.
 
 ## Install
-* 1:
+* Step 1:
 ```sh
 python -m venv env
 ```
-* 2:
+* Step 2:
 ```sh
 source env/bin/activate
 ```
-* 3:
+* Step 3:
 ```sh
 pip install -r requirements.txt
 ```

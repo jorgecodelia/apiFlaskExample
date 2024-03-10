@@ -1,5 +1,5 @@
-class NotFoundException(Exception):
-    status_code = 404
+class ServiceUnavailable(Exception):
+    status_code = 503
 
     def __init__(self, message, status_code=None, payload=None):
         super().__init__()
