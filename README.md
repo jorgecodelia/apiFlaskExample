@@ -28,26 +28,25 @@ The project structure is organized as follows:
 
 ```sh
 ├── app/
-│   ├── common/
+│   ├── api/
+│   │   ├── controller/
 │   │   ├── exception/
-│   │   ├── util/
-│   │   └── models/
-│   ├── controller/
-│   ├── repository/
-│   ├── service/
-│   └── app.py
+│   │   ├── model/
+│   │   ├── repository/
+│   │   ├── service/
+│   │   └── util/
+│   ├── resources/
+│   ├── test/
 │
-├── config/
+├── ci/
 │   ├── deploy/
 │   ├── docker/
 │   └── kubernates/
 │
-├── tests/
-│    └── app/
-│       ├── controller/
-│       ├── repository/
-│       └── service/
-└── README.md 
+├── requirements.txt
+├── README.md
+├── .flaskenv
+└── .gitignore
 ```
 
 ## Base URL
