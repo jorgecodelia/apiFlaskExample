@@ -43,8 +43,8 @@ The project structure is organized as follows:
 │   ├── docker/
 │   └── kubernates/
 │
-├── requirements.txt
 ├── README.md
+├── requirements.txt
 ├── .flaskenv
 └── .gitignore
 ```
