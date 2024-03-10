@@ -36,7 +36,7 @@ The project structure is organized as follows:
 │   │   ├── service/
 │   │   └── util/
 │   ├── resources/
-│   ├── test/
+│   └── test/
 │
 ├── ci/
 │   ├── deploy/
