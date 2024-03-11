@@ -1,7 +1,4 @@
 from werkzeug.exceptions import HTTPException
-from ..util.logger_util import LoggerUtil
-
-LOGGER =  LoggerUtil('ValidationException')
 
 class ValidationException(HTTPException):
     def __init__(self, description, payload=None):
