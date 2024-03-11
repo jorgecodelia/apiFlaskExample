@@ -10,3 +10,9 @@ class User:
             'name': self.name,
             'email': self.email
         }
+
+    def __str__(self):
+        return f"User(id={self.id}, name={self.name}, email={self.email})"
+
+    def __repr__(self):
+        return str(self)

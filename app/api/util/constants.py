@@ -4,8 +4,7 @@ class Constants(Enum):
     # Logger library messages
     INFO_MESSAGE = "Information: {}"
     WARNING_MESSAGE = "Warning: {}"
-    ERROR_MESSAGE = "Error: {}"
-    CRITICAL_MESSAGE = "Critical: {}"
+    ERROR_MESSAGE = "Critical: {}"
 
     ## http common error status
     CREATED = "CREATED"

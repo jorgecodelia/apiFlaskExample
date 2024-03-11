@@ -1,14 +1,16 @@
-class ValidationException(Exception):
-    status_code = 400
+from werkzeug.exceptions import HTTPException
+from ..util.logger_util import LoggerUtil
 
-    def __init__(self, message, status_code=None, payload=None):
+LOGGER =  LoggerUtil('ValidationException')
+
+class ValidationException(HTTPException):
+    def __init__(self, description, payload=None):
         super().__init__()
-        self.message = message
-        if status_code is not None:
-            self.status_code = status_code
+        self.description = description
+        self.code = 400
         self.payload = payload
 
     def to_dict(self):
         rv = dict(self.payload or ())
-        rv['message'] = self.message
+        rv['description'] = self.description
         return rv

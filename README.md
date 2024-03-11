@@ -51,47 +51,57 @@ The project structure is organized as follows:
 
 ## Base URL
 
-The base URL for all endpoints is `http://localhost:5000/v1`.
+The base URL for all endpoints is `http://localhost:5000/v1/user`.
 
 ## API Endpoints
 The following endpoints are available:
 
 * POST /v1/users: create user.
 ```sh
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"name": "John Doe", "email": "john.doe@example.com"}' \
-  http://localhost:5000/v1/users/
+curl -X 'POST' \
+  'http://localhost:5000/v1/user' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": 4,
+  "name": "john",
+  "email": "john@email.com"
+}'
 ```
 
 * GET /v1/users: Get all users.
 ```sh
-curl -X GET \
-  -H "Content-Type: application/json" \
-  http://localhost:5000/v1/users/
+curl -X 'GET' \
+  'http://localhost:5000/v1/users' \
+  -H 'accept: application/json'
 ```
 
 * GET /v1/users/123: Get a user by ID.
 ```sh
-curl -X GET \
-  -H "Content-Type: application/json" \
-  http://localhost:5000/users/123
+curl -X 'GET' \
+  'http://localhost:5000/v1/user?id=2' \
+  -H 'accept: application/json'
 ```
 
 * PUT /v1/users: Update a user by ID.
 ```sh
-curl -X PUT \
-  -H "Content-Type: application/json" \
-  -d '{"id": 123, "name": "Updated Name", "email": "updated.email@example.com"}' \
-  http://localhost:5000/users/
+curl -X 'PUT' \
+  'http://localhost:5000/v1/user' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": 1,
+  "name": "ana",
+  "email": "lee@email.com"
+}'
 
 ```
 
 * PUT /v1/users/123: Delete a user by ID.
 ```sh
-curl -X DELETE \
-  -H "Content-Type: application/json" \
-  http://localhost:5000/users/123
+curl -X 'DELETE' \
+  'http://localhost:5000/v1/user?id=3' \
+  -H 'accept: application/json'
 
 ```
 

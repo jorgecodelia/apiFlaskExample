@@ -30,15 +30,11 @@ class LoggerUtil:
     def warning(self, msg):
         self.logger.warning(msg)
 
-    def error(self, exc_class, ex):
-        self.logger.exception("%s: %s - %s", exc_class.__name__, self.message(ex), exc_info=True)
+    def error(self, exc_class, message):
+        self.logger.exception("%s: %s", exc_class.__name__, self.decorate_message(message), exc_info=True)
         traceback.print_exc()
 
-    def log_exception(self, exc_class, message):
-        self.logger.exception("%s: %s - %s", exc_class.__name__, message, exc_info=True)
-        traceback.print_exc()
-
-    def message(self, message):
+    def decorate_message(self, message):
         current_level = self.get_log_level()
         if current_level == 'DEBUG':
             return Constants.INFO_MESSAGE.value.format(message)
@@ -50,4 +46,4 @@ class LoggerUtil:
             return None
 
     def get_log_level(self):
-            return logging.getLevelName(self.logger.getEffectiveLevel())
+        return logging.getLevelName(self.logger.level)
