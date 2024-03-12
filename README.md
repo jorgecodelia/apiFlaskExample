@@ -7,6 +7,8 @@ This documentation outlines the endpoints available in the example REST API buil
 
 ## Dependencies
 
+More details [here](requirements.txt)
+
 | Resource          | Documentation                                             | 
 |:------------------|:----------------------------------------------------------|
 | python            | https://www.python.org/                                   |
