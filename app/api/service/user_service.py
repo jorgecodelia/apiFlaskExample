@@ -1,5 +1,5 @@
+from werkzeug.exceptions import NotFound
 from ..repository.user_repository import UserRepository
-from ..exception.not_found_exception import NotFoundException
 from ..util.logger_util import LoggerUtil
 from ..util.error_handler import ErrorHandler
 
@@ -18,7 +18,7 @@ class UserService:
     def get_user(self, user_id):
         user = self.user_repository.get_by_id(int(user_id))
         if not user:
-            e = NotFoundException("User not found!")
+            e = NotFound("User not found!")
             LOGGER.error(type(e), e.description)
             HANDLER.handle_exception(e)
         else:

@@ -1,58 +1,45 @@
-from flask import json
-from werkzeug.exceptions import HTTPException
+from werkzeug.exceptions import HTTPException, BadRequest, NotFound, Unauthorized, ServiceUnavailable
 from .logger_util import LoggerUtil
 from .extensions import api
+from ..exception.service_exception import ServiceException
 
 LOGGER =  LoggerUtil('ErrorHandler')
 
-class ErrorHandler:
-
-    def handle_exception_not_found(self, e):
-        api.abort(e.code, str(e))
-        raise e
-
-    def handle_exception_service(self, e):
-        api.abort(e.code, str(e))
-        raise e
-
-    def handle_exception_service_unavailable(self, e):
-        api.abort(e.code, str(e))
-        raise e
-
-    def handle_exception_validation(self, e):
-        api.abort(e.code, str(e))
-        raise e
-    
-    def handle_default_exception(self, e):
-        raise Exception(e)
-
-    def handle_http_error(self, e):
-        response = e.get_response()
-        response.data = json.dumps({
-            "code": e.code,
-            "name": e.name,
-            "description": e.description,
-        })
-        response.content_type = "application/json"
-        if e.code is not None:
-            api.abort(e.code, e.description)
-        else:
-            api.abort(500, "An unexpected error occurred")
-        return response
-    
-    def handle_exception(self, e):
+class ErrorHandler:    
+    @staticmethod
+    def handle_exception(e):
+        """
+        The function `handle_exception` logs a warning message and raises specific custom exceptions
+        based on the HTTP status code of the input exception, or a generic `ServiceException` if the
+        status code is not recognized.
+        
+        :param e: The `handle_exception` method you provided is a way to handle different types of
+        exceptions that may occur in your code. The method checks if the exception `e` is an instance of
+        `HTTPException` and then handles it based on the status code of the exception
+        :return: If the exception `e` is an instance of `HTTPException`, one of the specific exception
+        classes like `BadRequest`, `Unauthorized`, `NotFound`, `ServiceException`, or
+        `ServiceUnavailable` will be raised based on the status code of the HTTP exception. If the
+        status code does not match any of these specific cases, an instance of `HTTPException` will be
+        returned.
+        """
         LOGGER.warning("Handling Exception...")
         if isinstance(e, HTTPException):
             status_code = e.code
             if status_code == 400:
-                return self.handle_exception_validation(e)
+                api.abort(e.code, str(e))
+                raise BadRequest(e)
+            if status_code == 401:
+                api.abort(e.code, str(e))
+                raise Unauthorized(e)
             elif status_code == 404:
-                return self.handle_exception_not_found(e)
-            elif status_code == 500:
-                return self.handle_exception_service(e)
+                api.abort(e.code, str(e))
+                raise NotFound(e)
             elif status_code == 503:
-                return self.handle_exception_service_unavailable(e)
+                api.abort(e.code, str(e))
+                raise ServiceUnavailable(e)
             else:
-                return self.handle_http_error(e)
+                api.abort(e.code, str(e))
+                raise ServiceException(e)
         else:
-            return self.handle_default_exception(e)
+            api.abort(500, str(e))
+            raise ServiceException("An unexpected error occurred", e)

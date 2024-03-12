@@ -1,7 +1,7 @@
 import re
+from werkzeug.exceptions import BadRequest
 from .logger_util import LoggerUtil
 from .error_handler import ErrorHandler
-from ..exception.validation_exception import ValidationException
 
 LOGGER =  LoggerUtil('ValidatorUtil')
 HANDLER = ErrorHandler()
@@ -16,12 +16,12 @@ class ValidatorUtil:
         if re.search(pattern, email):
             return True
         else:
-            e = ValidationException("Invalid email!")
+            e = BadRequest("Invalid email!")
             LOGGER.error(type(e), e.description)
             HANDLER.handle_exception(e)
 
     def check_user_id(user_id):
         if not user_id:
-            e = ValidationException("User ID is required!")
+            e = BadRequest("User ID is required!")
             LOGGER.error(type(e), e.description)
             HANDLER.handle_exception(e)

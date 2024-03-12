@@ -1,4 +1,7 @@
 import os
+from .logger_util import LoggerUtil
+
+LOGGER =  LoggerUtil('ASCIIArtPrinter')
 
 class ASCIIArtPrinter:
     def __init__(self):
@@ -8,4 +11,4 @@ class ASCIIArtPrinter:
                 ascii_art = file.read()
                 print(ascii_art)
         except FileNotFoundError:
-            print("Banner not found!")
+            LOGGER.error("Banner not found!")

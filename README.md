@@ -3,22 +3,21 @@
 ## Overview
 
 This documentation outlines the endpoints available in the example REST API built with flask and python.
+[GIT](https://github.com/jorgecodelia/apiFlaskExample)
 
 ## Dependencies
 
-The following report links work only once the api is compiled in local
-
-| Resource          | Documentation                                             | Info                                                             |
-|:------------------|:----------------------------------------------------------|:-----------------------------------------------------------------|
-| python            | https://www.python.org/                                   | No                                                               |
-| pytest            | https://docs.pytest.org/en/8.0.x/                         | [Report](http://localhost:5000/)                                 |
-| pytest-html       | https://docs.pytest.org/en/8.0.x/                         | No                                 |
-| flask             | https://flask.palletsprojects.com/en/3.0.x/               | No                                                               |
-| flask-restx       | https://flask-restx.readthedocs.io/en/latest/             | No                                                               |
-| flask-SQLAlchemy  | https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/    | No                                                               |
-| Swagger           | https://swagger.io/                                       | [Report](http://localhost:5000/)                         | 
-| pyyaml            | https://pypi.org/project/PyYAML/                          | No                                                               | 
-| python-dotenv     | https://pypi.org/project/python-dotenv/                   | No                                                               | 
+| Resource          | Documentation                                             | 
+|:------------------|:----------------------------------------------------------|
+| python            | https://www.python.org/                                   |
+| pytest            | https://docs.pytest.org/en/8.0.x/                         |
+| pytest-html       | https://docs.pytest.org/en/8.0.x/                         |
+| flask             | https://flask.palletsprojects.com/en/3.0.x/               |
+| flask-restx       | https://flask-restx.readthedocs.io/en/latest/             |
+| flask-SQLAlchemy  | https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/    |
+| Swagger           | https://swagger.io/                                       |
+| pyyaml            | https://pypi.org/project/PyYAML/                          |
+| python-dotenv     | https://pypi.org/project/python-dotenv/                   | 
 
 
 
