@@ -13,3 +13,6 @@ class Constants(Enum):
     FORBIDDEN = "FORBIDDEN"
     UNAUTHORIZED = "UNAUTHORIZED"
     SUCCESS = "SUCCESS"
+
+    ## environment
+    ENV_NOT_FOUND = "ENVIRONMENT VARIABLE NOT FOUND"

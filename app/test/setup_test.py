@@ -5,7 +5,7 @@ import pytest
 import shutil
 from app.api.repository.user_repository import UserRepository
 from app.api.service.user_service import UserService
-from app.api.controller.user_controller import UserController
+from app.api.controller.user_controller import UserRouter, UserListRouter
 from unittest.mock import MagicMock
 
 @pytest.fixture
@@ -21,7 +21,12 @@ def user_service(user_repository):
 @pytest.fixture
 def user_controller(user_service):
     # Create an instance of UserList and User controllers for each test function
-    return UserController(user_service)
+    return UserRouter(user_service)
+
+@pytest.fixture
+def user_controller(user_service):
+    # Create an instance of UserList and User controllers for each test function
+    return UserListRouter(user_service)
 
 class CleanUpAfterTest:
     @staticmethod

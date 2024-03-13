@@ -1,0 +1,4 @@
+project:
+  name: FLASK_API
+  version: 1.0.0
+  description: This is an example archetype skeleton of a Python with Flask Rest API

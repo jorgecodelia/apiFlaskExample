@@ -123,6 +123,10 @@ source env/bin/activate
 ```sh
 pip install -r requirements.txt
 ```
+* Step 4:
+```sh
+pip install -e .
+```
 
 ## Run unit test
 ```sh
