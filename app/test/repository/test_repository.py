@@ -1,7 +1,7 @@
 # app/test/repository/test_repository.py
 
 import unittest
-from ...api.repository.user_repository import UserRepository
+from app.api.repository.user_repository import UserRepository
 
 class TestUserRepository(unittest.TestCase):
     def setUp(self):

@@ -57,53 +57,40 @@ The base URL for all endpoints is `http://localhost:5000/v1/user`.
 ## API Endpoints
 The following endpoints are available:
 
-* POST /v1/users: create user.
+* **POST `/v1/users`: create user.**
 ```sh
-curl -X 'POST' \
-  'http://localhost:5000/v1/user' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "id": 4,
-  "name": "john",
-  "email": "john@email.com"
+curl --location 'http://localhost:5000/v1/user' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Charles",
+    "email": "charles.white@example.com"
 }'
 ```
 
-* GET /v1/users: Get all users.
+* **GET `/v1/users`: Get all users.**
 ```sh
-curl -X 'GET' \
-  'http://localhost:5000/v1/users' \
-  -H 'accept: application/json'
+curl --location 'http://localhost:5000/v1/users'
 ```
 
-* GET /v1/users/123: Get a user by ID.
+* **GET `/v1/user/123`: Get a user by ID.**
 ```sh
-curl -X 'GET' \
-  'http://localhost:5000/v1/user?id=2' \
-  -H 'accept: application/json'
+curl --location 'http://localhost:5000/v1/user?id=4'
 ```
 
-* PUT /v1/users: Update a user by ID.
+* **PUT `/v1/user`: Update a user by ID.**
 ```sh
-curl -X 'PUT' \
-  'http://localhost:5000/v1/user' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "id": 1,
-  "name": "ana",
-  "email": "lee@email.com"
+curl --location --request PUT 'http://localhost:5000/v1/user?id=3' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 3,
+    "name": "Mike",
+    "email": "mike.jhonson@example.com"
 }'
-
 ```
 
-* PUT /v1/users/123: Delete a user by ID.
+* **DELETE `/v1/user/123`: Delete a user by ID.**
 ```sh
-curl -X 'DELETE' \
-  'http://localhost:5000/v1/user?id=3' \
-  -H 'accept: application/json'
-
+curl --location --request DELETE 'http://localhost:5000/v1/user?id=4'
 ```
 
 ## Endpoint Documentation 

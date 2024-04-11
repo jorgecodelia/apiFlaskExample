@@ -13,8 +13,9 @@ FLASK_API.egg-info/
 .db
 
 ### test report files ###
-build/
+.build/
 env/
+venv/
 instance/
 .pytest_cache/
 
