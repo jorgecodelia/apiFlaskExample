@@ -95,7 +95,7 @@ curl --location --request DELETE 'http://localhost:5000/v1/user?id=4'
 
 ## Endpoint Documentation 
 
-The openApi URL documentation in local environment is `http://localhost:5000/swagger`.
+The openApi URL documentation in local environment is `http://localhost:5000/api-doc.html`.
 
 ## Install
 * Step 1:
@@ -116,6 +116,7 @@ pip install -e .
 ```
 
 ## Run unit test
+Report [URL](http://127.0.0.1:3000/.build/report.html?sort=result)
 ```sh
 pytest
 ```
